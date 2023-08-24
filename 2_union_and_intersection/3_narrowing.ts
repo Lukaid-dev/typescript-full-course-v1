@@ -4,13 +4,13 @@
  * Narrowing은 Union 타입에서 더욱 구체적인 타입으로
  * 논리적으로 유추 할 수 있게 되는걸 의미한다.
  */
-// let numberOrString: number | string = 'Code Factory';
-// numberOrString;
+let numberOrString: number | string = "Code Factory";
+numberOrString; // 선언은 둘 다 된다고 선언했지만, string을 할당해서 타입이 string으로 narrowing 되었다.
 
-// const decimal = 12.3278;
-// console.log(decimal.toFixed(2));
+const decimal = 12.3278;
+console.log(decimal.toFixed(2)); // 숫자만큼 소수점 반올림, number 타입에만 존재하는 메소드
 
-// numberOrString.toFixed();
+// numberOrString.toFixed(); // Property 'toFixed' does not exist on type 'string'.
 
 /**
  * Narrowing 종류
@@ -21,7 +21,7 @@
  * 4) Equality Narrowing
  * 5) in operator narrowing
  * 6) instanceof narrowing
- * 7) discrimated union narrowing (차별된 유니언 내로잉)
+ * 7) discriminated union narrowing (차별된 유니언 내로잉)
  * 8) exhaustiveness checking
  */
 
@@ -35,9 +35,9 @@ numbOrString.toString();
 numbOrString = Math.random() > 0.5 ? 1123 : "아이유";
 
 if (typeof numbOrString === "string") {
-  numbOrString;
+  numbOrString; // string으로 narrowing 되었다.
 } else {
-  numbOrString;
+  numbOrString; // number로 narrowing 되었다.
 }
 
 // (3) Truthiness Narrowing
@@ -54,8 +54,9 @@ if (nullOrString) {
 let numbOrString2: number | string = Math.random() > 0.5 ? 1123 : "아이유";
 let stringOrBool2: string | boolean = Math.random() > 0.5 ? "아이브" : true;
 
+// 같으려면 타입도 같아야 한다.
 if (numbOrString2 === stringOrBool2) {
-  numbOrString2;
+  numbOrString2; // 그래서 string으로 narrowing 된다.
   stringOrBool2;
 } else {
   numbOrString2;
@@ -94,7 +95,8 @@ let dog: Dog = {
 
 let humanOrDog: Human | Dog = Math.random() > 0.5 ? human : dog;
 
-if ("type" in humanOrDog) {
+// 헤당 프로퍼티가 있는지 확인
+if ("age" in humanOrDog) {
   humanOrDog;
 } else {
   humanOrDog;
@@ -151,6 +153,7 @@ interface Fish2 {
   length: number;
 }
 
+// 여러개로 나눈 다음 유니언으로 묶는게 더 좋음
 type HumanOrDog2 = Human2 | Dog2 | Fish2;
 
 let humanOrDog2: HumanOrDog2 =
@@ -175,7 +178,7 @@ if (humanOrDog2.type === "human") {
   humanOrDog2;
 }
 
-// (8) Exhuastiveness Checking
+// (8) Exhaustiveness Checking
 switch (humanOrDog2.type) {
   case "human":
     humanOrDog2;

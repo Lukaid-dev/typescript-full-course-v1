@@ -1,52 +1,56 @@
 /**
  * Type Predicate
  */
-function isNumber(input: any): input is number{
-    return typeof input === 'number';
+function isNumber(input: any): input is number {
+  return typeof input === "number";
 }
 
 console.log(isNumber(10));
+console.log(isNumber("10"));
 
-function isNumberRetBool(input: any): boolean{
-    return typeof input === 'number';
+function isNumberRetBool(input: any): boolean {
+  return typeof input === "number";
 }
 
 let number: any = 5;
 
-if(isNumberRetBool(number)){
-    number;
+if (isNumberRetBool(number)) {
+  number; // number는 여전히 any
 }
 
-if(isNumber(number)){
-    number;
+if (isNumber(number)) {
+  number; // number는 number
 }
 
-interface Doge{
-    name: string;
-    age: number;
+interface Doge {
+  name: string;
+  age: number;
 }
 
-interface Cat{
-    name: string;
-    breed: string;
+interface Cat {
+  name: string;
+  breed: string;
 }
 
 type DogeOrCat = Doge | Cat;
 
-function isDoge(animal: DogeOrCat): animal is Doge{
-    return (animal as Doge).age !== undefined;
+function isDoge(animal: DogeOrCat): animal is Doge {
+  return (animal as Doge).age !== undefined;
 }
 
-const doge: DogeOrCat = Math.random() > 0.5 ? {
-    name: '도지',
-    age: 32,
-} : {
-    name: '오리',
-    breed: '코리안 길냥이'
-}
+const doge: DogeOrCat =
+  Math.random() > 0.5
+    ? {
+        name: "도지",
+        age: 32,
+      }
+    : {
+        name: "오리",
+        breed: "코리안 길냥이",
+      };
 
-if(isDoge(doge)){
-    doge;
-}else{
-    doge;
+if (isDoge(doge)) {
+  doge;
+} else {
+  doge;
 }
