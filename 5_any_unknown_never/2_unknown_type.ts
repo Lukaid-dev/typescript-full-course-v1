@@ -1,10 +1,12 @@
 /**
  * Unknown Type
+ *
+ * 최근에 나옴, 자주 사용되지는 않음
  */
 let anyValue: any;
 
 anyValue = 24;
-anyValue = '아이유';
+anyValue = "아이유";
 anyValue = false;
 anyValue = [];
 anyValue = {};
@@ -14,7 +16,7 @@ anyValue = undefined;
 let unknownValue: unknown;
 
 unknownValue = 24;
-unknownValue = '아이유';
+unknownValue = "아이유";
 unknownValue = false;
 unknownValue = [];
 unknownValue = {};
@@ -29,8 +31,8 @@ unknownValue = undefined;
 // let nullType: null = anyValue;
 // let undefinedType: undefined = anyValue;
 
-// let anyType: any = unknownValue;
-// let unknownType: unknown = unknownValue;
+// let anyType: any = unknownValue; // any는 unknown에 할당할 수 있다.
+// let unknownType: unknown = unknownValue; // unknown은 any에 할당할 수 없다.
 // let booleanType: boolean = unknownValue;
 // let arrayType: string[] = unknownValue;
 // let objectType: {} = unknownValue;
@@ -45,14 +47,14 @@ new anyValue();
 // unknownValue.name;
 // new unknownValue();
 
-function isString(target: unknown) : target is string{
-    return typeof target === 'string';
+function isString(target: unknown): target is string {
+  return typeof target === "string";
 }
 
 let testVal: unknown;
 
-if(isString(testVal)){
-    testVal;
+if (isString(testVal)) {
+  testVal;
 }
 
 /**
