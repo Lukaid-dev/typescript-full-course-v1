@@ -5,56 +5,63 @@
 /**
  * 유추된 객체 타입 유니언
  */
-const dogOrCat = Math.random() > 0.5 ?
-    // 강아지
-    {
-        name: '별이',
+const dogOrCat =
+  Math.random() > 0.5
+    ? // 강아지
+      {
+        name: "별이",
         age: 12,
-    } :
-    // 고양이
-    {
-        name: '오리',
-        breed: '코리안 길냥이',
-    }
+      }
+    : // 고양이
+      {
+        name: "오리",
+        breed: "코리안 길냥이",
+      };
 
 dogOrCat.name;
-dogOrCat.age;
-dogOrCat.breed;
+dogOrCat.age; // number | undefined
+dogOrCat.breed; // string | undefined
+
+console.log(dogOrCat.name);
+console.log(dogOrCat.age);
+console.log(dogOrCat.breed);
 
 interface Dog {
-    name: string;
-    age: number;
+  name: string;
+  age: number;
 }
 
 interface Cat {
-    name: string;
-    breed: string;
+  name: string;
+  breed: string;
 }
 
 type DogOrCat = Dog | Cat;
 
-const dogOrCat2: DogOrCat = Math.random() > 0.5 ?
-    // 강아지
-    {
-        name: '별이',
+const dogOrCat2: DogOrCat =
+  Math.random() > 0.5
+    ? // 강아지
+      {
+        name: "별이",
         age: 12,
-    } :
-    // 고양이
-    {
-        name: '오리',
-        breed: '코리안 길냥이',
-    }
+      }
+    : // 고양이
+      {
+        name: "오리",
+        breed: "코리안 길냥이",
+      };
 
 dogOrCat2.name;
-// dogOrCat2.age;
-// dogOrCat2.breed;
+// dogOrCat2.age; // Property 'age' does not exist on type 'DogOrCat'. Property 'age' does not exist on type 'Cat'.
+// dogOrCat2.breed; // Property 'breed' does not exist on type 'DogOrCat'. Property 'breed' does not exist on type 'Dog'.
 
-if('age' in dogOrCat2){
-    dogOrCat2;
-    dogOrCat2.age;
-    dogOrCat2.name;
-}else{
-    dogOrCat2;
-    dogOrCat2.name;
-    dogOrCat2.breed;
+// narrowing
+if ("age" in dogOrCat2) {
+  dogOrCat2;
+  dogOrCat2.age;
+  dogOrCat2.name;
+} else {
+  dogOrCat2;
+  dogOrCat2.name;
+  dogOrCat2.breed;
 }

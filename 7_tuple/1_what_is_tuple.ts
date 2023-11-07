@@ -21,8 +21,6 @@ let unmodifiableTuple: readonly [number, string] = [23, "코드팩토리"]; // �
 let actresses = ["김고은", "박소담", "전여빈"];
 
 let actressesTuple = ["김고은", "박소담", "전여빈", "전여빈"] as const; // as const를 사용하면 readonly가 된다.
-console.log(actressesTuple);
-
 const actressesTupleConst = ["김고은", "박소담", "전여빈"] as const;
 
 let stringArray: string[] = [...actressesTuple, ...actressesTupleConst];
@@ -55,7 +53,7 @@ let stringArr: string[] = ive;
 // let ive2: [string, string] = stringArr;
 
 /**
- * Multi Dimesional Tuple
+ * Multi Dimensional Tuple
  */
 const tuple2D: [string, number][] = [
   ["코드팩토리", 32],
