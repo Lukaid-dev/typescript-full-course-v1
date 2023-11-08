@@ -1,6 +1,12 @@
 /**
  * Type Predicate
+ *
+ * 생각보다 많이 쓴다고 함...
+ *
+ * 어떤 변수나 반환값이 특정 타입인지 아닌지를 체크하는 함수
  */
+
+// 함수의 반환타입에 인풋파라미터를 넣어주고 is와 체크하고싶은 타입을 넣어줌, 불리언으로 반환
 function isNumber(input: any): input is number {
   return typeof input === "number";
 }
@@ -50,7 +56,7 @@ const doge: DogeOrCat =
       };
 
 if (isDoge(doge)) {
-  doge;
+  doge; // doge는 Doge
 } else {
-  doge;
+  doge; // doge는 Cat
 }
